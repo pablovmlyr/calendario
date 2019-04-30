@@ -1,6 +1,9 @@
+
 var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
+
+var currentYear = new Date().getFullYear();
 
 estructurar();
 
@@ -44,11 +47,13 @@ function estructurar() {
   }
 }
 
-numerar();
 
-function numerar() {
+numerar(currentYear);
+
+
+function numerar(currentYear) {
   for (i = 1; i < 366; i++) {
-    let fecha = fechaPorDia(2017, i);
+    let fecha = fechaPorDia(currentYear, i);
     let mes = fecha.getMonth();
     let select_tabla = document.getElementsByClassName('tabla_mes')[mes];
     let dia = fecha.getDate()
